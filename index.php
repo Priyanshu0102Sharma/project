@@ -12,6 +12,12 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- bootstrap css link ends -->
 
+<!-- font family -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+</style>
+
+
     <!-- background start css -->
     <style>
     body {
@@ -39,6 +45,10 @@
 </head>
 
 <body>
+
+<!-- connect to database -->
+<?php require "partials/_dbconnect.php" ?>
+<!-- connect to database -->
 
     <!-- navabar links start -->
     <?php require "partials/navbar.php" ?>
@@ -78,7 +88,7 @@
 
 <div class="container my-4">
 
-<h1 class="text-center">Choose from here</h1>
+<h1 class="text-center" style="font-family: 'Titan One', cursive; text-shadow: 9px 0px 11px rgba(0,0,0,0.79);">CHOOSE FROM HERE</h1>
 
 
 </div>
