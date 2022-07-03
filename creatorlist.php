@@ -18,6 +18,7 @@
     </style>
 
 
+
     <!-- background start css -->
     <style>
     body {
@@ -54,10 +55,37 @@
     <?php require "partials/navbar.php" ?>
     <!-- navbar links end -->
 
+<div class="container my-3">
+    <?php 
+$id=$_SESSION['brandsno'];
+// echo $id;
+ $sql="SELECT * FROM `creator_details` WHERE `ad_id`='$id'";
+ $result=mysqli_query($conn,$sql);
+ echo'
+ <table class="table" style="border: black 2px solid">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">UserName</th>
+      <th scope="col">Details</th>
+      <th scope="col">Image</th>
+    </tr>
+  </thead>
+  <tbody>';
+ while($row=mysqli_fetch_assoc($result))
+    {echo '<tr>
+      <th scope="row">'.$row['creator_name'].'</th>
+      <td>'.$row['creator_username'].'</td>
+      <td >'.$row['details'].'</td>
+      <td><img src="'.$row['image'].'" width="200"></td>
+    </tr>';
+    }
+    echo'
+  </tbody>
+</table>';
 
-
-
-
+?>
+</div>
 
     <!-- bootstrap script link start-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
