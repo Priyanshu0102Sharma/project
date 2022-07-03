@@ -139,8 +139,8 @@ box-shadow: 7px 9px 30px -6px rgba(143,70,143,1); height:600px; width:450px">
                         <h4 class="card-title text-center">Are you a Brand</h4>
                         <p class="card-text text-center">Login here to upload Ads</p>
                         <div class="buttons d-flex justify-content-around">
-                        <a href="#" class="btn btn-outline-danger">Login</a>
-                        <a href="#" class="btn btn-outline-success">signup</a>
+                        <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#login_Modal" >Login</a>
+                        <a href="#" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#signup_Modal" >signup</a>
                         </div>
                     </div>
                 </div>
@@ -152,8 +152,8 @@ box-shadow: 7px 9px 30px -6px rgba(143,70,143,1); height:600px; width:450px">
                         <h4 class="card-title text-center">Are you a Creator</h4>
                         <p class="card-text text-center">Login here to see ads</p>
                             <div class="buttons d-flex justify-content-around">
-                        <a href="#" class="btn btn-outline-danger">Login</a>
-                        <a href="#" class="btn btn-outline-success">signup</a>
+                        <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#loginModal" >Login</a>
+                        <a href="#" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#signupModal" >signup</a>
                         </div>
                     </div>
                 </div>
@@ -162,7 +162,10 @@ box-shadow: 7px 9px 30px -6px rgba(143,70,143,1); height:600px; width:450px">
     </div>
 
 
-
+<?php include"partials/_creatorsignupmodal.php" ?>
+<?php include"partials/_brandsignupmodal.php" ?>
+<?php include"partials/_creatorloginmodal.php" ?>
+<?php include"partials/_brandloginmodal.php" ?>
     <!-- bootstrap script link start-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
