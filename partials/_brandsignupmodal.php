@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+<div class="modal fade" id="signup_Modal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/forum/partials/_signuphandling.php" method="post">
+                <form action="/project/partials/_brandsignuphandling.php" method="post">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">

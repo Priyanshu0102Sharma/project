@@ -1,6 +1,7 @@
 <?php
 
 // navbar start here
+session_start();
 
 echo '<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
   <div class="container-fluid">
@@ -16,13 +17,41 @@ echo '<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
          </li>
-     
+  
       </ul>
     </div>
   </div>
 </nav>';
 
-// navbar ens here
+// navbar ends here
 
+if(isset($_GET['signupsuccess']) && $_GET['signupsuccess']=="true")
+{
+  echo '<div class="alert alert-success alert-dismissible" role="alert">
+              <strong>SUCCESS ! </strong> you have signed up!! You can Login now <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>';
+}
+if(isset($_GET['signupsuccess']) && $_GET['signupsuccess']=="false")
+{
+  echo '<div class="alert alert-danger alert-dismissible" role="alert">
+              <strong>ERROR!</strong> Email is already taken <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>';
+}
+
+if(isset($_GET['loginsuccess']) && $_GET ['loginsuccess']=="false")
+{
+  echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Failure!</strong> You were not able to login because password didn\'t match !!
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>';
+}
+if(isset($_GET['loginsuccess']) && $_GET ['loginsuccess']=="true")
+
+{
+  echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success!</strong> You have logged in!!
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>';
+}
 
 ?>
