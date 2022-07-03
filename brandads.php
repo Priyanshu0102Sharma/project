@@ -71,7 +71,7 @@
             <input type="text" class="form-control" id="Adtitle" name="Adtitle" aria-describedby="emailHelp">
 
         <div class="mb-3">
-            <label for="Adcontent" class="form-label">Enter Content of your Ad</label>
+            <label for="Adcontent" class="form-label my-2">Enter Content of your Ad</label>
             <textarea class="form-control" id="Adcontent" name="Adcontent" rows="5"></textarea>
         </div>
         <div class="button d-flex justify-content-center">
@@ -83,14 +83,14 @@
 <!-- insertion of form to database begins-->
 
 <?php
-
+$brandsno=$_SESSION['brandsno'];
 $method=$_SERVER['REQUEST_METHOD'];
 if($method=='POST')
 {
     $adtitle=$_POST['Adtitle'];
     $adcontent=$_POST['Adcontent'];
 
-    $sql="INSERT INTO `brandads` (`ad_title`, `ad_content`, `brand_id`, `timestamp`) VALUES ('$adtitle', '$adcontent', '0', current_timestamp());";
+    $sql="INSERT INTO `brandads` (`ad_id`, `ad_title`, `ad_content`, `brand_id`, `timestamp`) VALUES ('$brandsno', '$adtitle', '$adcontent', '0', current_timestamp());";
     $result=mysqli_query($conn,$sql);
 
 }
@@ -106,10 +106,20 @@ if($method=='POST')
 
 
 <?php
-
-$sql="SELECT * FROM `brandads`";
+$brandsno=$_SESSION['brandsno'];
+$sql="SELECT * FROM `brandads` where `ad_id`='$brandsno'";
 $result=mysqli_query($conn, $sql);
 // echo var_dump($result);
+$numrows=mysqli_num_rows($result);
+if($numrows==0){
+    echo'<div class="container mt-3 my-3">
+    <div class="mt-4 p-5 bg-dark text-center text-white rounded">
+      <h1>No advertisement to display</h1> 
+      <p>It seems you haven\'t created a advertisement yet </p> 
+    </div>
+  </div>';
+}
+else{
 while($row=mysqli_fetch_assoc($result))
 {
     $adtitle=$row['ad_title'];
@@ -124,12 +134,13 @@ echo'
     <p>'.$adcontent.'</p> 
     <hr class="my-4">
     <div class="button">
-    <a href="creatorlist.php?advid='. $id.'" class="btn btn-outline-warning">Display the list of creator</a>
+    <a href="creatorlist.php?advid='. $brandsno.'" class="btn btn-outline-warning">Display the list of creator</a>
     </div>
   </div>
 </div>
 ';
 }    
+}
 ?>
 
 </div>
