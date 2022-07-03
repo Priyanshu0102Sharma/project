@@ -78,7 +78,7 @@ echo'
     <hr class="my-4">
     <div class="button">
     
-    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Apply now</button>
+    <a href="applynow.php?bid='. $id.'" class="btn btn-primary">Apply now</a>
 
     </div>
   </div>
@@ -86,7 +86,6 @@ echo'
 ';
 }    
 
-require "applynowmodal.php";
 ?>
 
 
