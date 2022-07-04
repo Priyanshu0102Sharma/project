@@ -12,6 +12,9 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- bootstrap css link ends -->
 
+<!-- data table css link -->
+<link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
     <!-- font family -->
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
@@ -43,6 +46,22 @@
     }
     </style>
     <!-- background ends -->
+
+    <style>
+        table, th, td {
+  border: 1px solid;
+}
+
+#myTable_filter input{
+    border: 2px solid black;
+    margin:3px;
+}
+#myTable_length select{
+    border: 2px solid black;
+
+}
+    </style>
+
 </head>
 
 <body>
@@ -55,43 +74,88 @@
     <?php require "partials/navbar.php" ?>
     <!-- navbar links end -->
 
-<div class="container my-3">
-    <?php 
-$id=$_SESSION['brandsno'];
-// echo $id;
- $sql="SELECT * FROM `creator_details` WHERE `ad_id`='$id'";
- $result=mysqli_query($conn,$sql);
- echo'
- <table class="table" style="border: black 2px solid">
+    <div class="container my-3 text-dark">
+
+
+<!-- table start here -->
+<table class="table" id="myTable" >
   <thead>
     <tr>
       <th scope="col">Name</th>
-      <th scope="col">UserName</th>
+      <th scope="col">Username</th>
       <th scope="col">Details</th>
       <th scope="col">Image</th>
     </tr>
   </thead>
-  <tbody>';
- while($row=mysqli_fetch_assoc($result))
-    {echo '<tr>
-      <th scope="row">'.$row['creator_name'].'</th>
-      <td>'.$row['creator_username'].'</td>
-      <td >'.$row['details'].'</td>
-      <td><img src="'.$row['image'].'" width="200"></td>
-    </tr>';
-    }
+  <tbody>
+
+    <?php
+    $id=$_SESSION['brandsno'];
+    // selecting/displaying querry
+    $sql="SELECT * FROM `creator_details` where `ad_id`='$id'";
+    $result=mysqli_query($conn,$sql);
+// find number or rows
+$num= mysqli_num_rows($result);
+if($num>0)
+{
+$sno=0;
+while($row=mysqli_fetch_assoc($result))
+{   
+   ++$sno;
+    echo "  <tr>
+    <th scope='row'>".$row['creator_name']."</th>
+    <td>".$row['creator_username']."</td>
+    <td>".$row['details']."</td>
+    <td><img src='".$row['image']."' width='200'></td>
+  </tr>";
+}
+}
+else{
     echo'
-  </tbody>
-</table>';
+  
+    <div class="container mt-3 my-3">
+      <div class="mt-4 p-5 bg-dark text-center text-white rounded">
+        <h1>No data to display</h1> 
+        <p>It seems that no one has register for your ad yet</p> 
+        <hr class="my-4">
+      </div>
+    </div>
+    '; 
+}
 
 ?>
+
+
+
+
+  </tbody>
+</table>
+<!-- table ends here -->
 </div>
+
 
     <!-- bootstrap script link start-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
     <!-- bootstrap script link ends -->
+
+
+      <!-- jquerry link -->
+
+      <script src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- data table js link -->
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+
+
+    <script>
+      $(document).ready(function () {
+        $('#myTable').DataTable();
+      });
+    </script>
 
 </body>
 
