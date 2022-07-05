@@ -153,7 +153,7 @@ box-shadow: 7px 9px 30px -6px rgba(143,70,143,1); height:600px; width:450px">
                         <p class="card-text text-center">Login here to see ads</p>
                             <div class="buttons d-flex justify-content-around">
                         <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#loginModal" >Login</a>
-                        <a href="#" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#signupModal" >signup</a>
+                        <a href="#" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#signupModal" >Signup</a>
                         </div>
                     </div>
                 </div>
