@@ -89,6 +89,10 @@ if($method=='POST')
 {
     $adtitle=$_POST['Adtitle'];
     $adcontent=$_POST['Adcontent'];
+    $adcontent=str_replace("<","&lt",$adcontent);
+  $adcontent=str_replace(">","&gt",$adcontent);
+    $adtitle=str_replace("<","&lt",$adtitle);
+  $adtitle=str_replace(">","&gt",$adtitle);
 
     $sql="INSERT INTO `brandads` (`ad_id`, `ad_title`, `ad_content`, `brand_id`, `timestamp`) VALUES ('$brandsno', '$adtitle', '$adcontent', '0', current_timestamp());";
     $result=mysqli_query($conn,$sql);

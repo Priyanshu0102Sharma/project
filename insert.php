@@ -6,9 +6,13 @@ if($method=='POST')
 {session_start();
     // $sno=$_POST['sno'];
     $name=$_POST['naam'];
+    $name=str_replace("<","&lt",$name);
+  $name=str_replace(">","&gt",$name);
     // $pass=$_POST['pass'];
     $file=$_FILES['foto'];
 $details=$_POST['detail'];
+$details=str_replace("<","&lt",$details);
+$details=str_replace(">","&gt",$details);
     $username=$_SESSION['username'];
 $id=$_POST['ad_id'];
     // echo var_dump($file);
