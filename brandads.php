@@ -59,7 +59,7 @@
 
     <div class="container">
         <h1 class="text-center" style="font-family: 'Secular One', sans-serif; text-shadow: 9px 0px 11px rgba(0,0,0,0.79);">
-            Fill this form for publishing ads</h1>
+            Fill this form for publishing Advertisements</h1>
             
             <!-- form for ads start -->
 
@@ -106,7 +106,7 @@ if($method=='POST')
 
 
 
-    <h1 class="text-center my-5" style="font-family: 'Secular One', sans-serif; text-shadow: 9px 0px 11px rgba(0,0,0,0.79);">Your Ads</h1>
+    <h1 class="text-center my-5" style="font-family: 'Secular One', sans-serif; text-shadow: 9px 0px 11px rgba(0,0,0,0.79);">Your Advertisement</h1>
 
 
 <?php
